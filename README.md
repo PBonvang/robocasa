@@ -11,7 +11,7 @@
 
 This guide contains information about installation and setup. Please refer to the following resources for additional information:
 
-[**[Home page]**](https://robocasa.ai) &ensp; [**[Documentation]**](https://robocasa.ai/docs/introduction/overview.html) &ensp; [**[RoboCasa365 Paper]**](https://openreview.net/forum?id=tQJYKwc3n4) &ensp; [**[Original RoboCasa Paper]**](https://robocasa.ai/assets/robocasa_rss24.pdf)
+[**[Home page]**](https://robocasa.ai) &ensp; [**[Documentation]**](https://robocasa.ai/docs/introduction/overview.html) &ensp; [**[RoboCasa365 Paper]**](https://robocasa.ai/assets/robocasa365_iclr26.pdf) &ensp; [**[Original RoboCasa Paper]**](https://robocasa.ai/assets/robocasa_rss24.pdf)
 
 -------
 ## Installation
@@ -45,8 +45,8 @@ RoboCasa works across all major computing platforms. The easiest way to set up i
    ```
 5. Install the package and download assets:
    ```sh
-   python robocasa/scripts/download_kitchen_assets.py   # Caution: Assets to be downloaded are around 5GB.
-   python robocasa/scripts/setup_macros.py              # Set up system variables.
+   python -m robocasa.scripts.setup_macros              # Set up system variables.
+   python -m robocasa.scripts.download_kitchen_assets   # Caution: Assets to be downloaded are around 10GB.
    ```
 
 -------
@@ -72,14 +72,14 @@ run_random_rollouts(
 ```
 
 ### Play back sample demonstrations of tasks
+**(Mac users: for these scripts, prepend the "python" command with "mj": `mjpython ...`)**
+
 Select a task and play back a sample demonstration for the selected task:
 ```
 python -m robocasa.demos.demo_tasks
 ```
 
 ### Explore kitchen scenes
-**(Mac users: for these scripts, prepend the "python" command with "mj": `mjpython ...`)**
-
 Explore 2500+ kitchen scenes:
 ```
 python -m robocasa.demos.demo_kitchen_scenes
@@ -90,14 +90,14 @@ View and interact with both human-designed and AI-generated objects:
 ```
 python -m robocasa.demos.demo_objects
 ```
-Note: by default this demo shows objaverse objects. To view AI-generated objects, add the flag `--obj_types aigen`.
+Note: By default, this demo shows objaverse objects. To view AI-generated objects, add the flag `--obj_types aigen`.
 
 ### Teleoperate the robot
 Control the robot directly, either through a keyboard controller or spacemouse. This script renders the robot semi-translucent in order to minimize occlusions and enable better visibility.
 ```
 python -m robocasa.demos.demo_teleop
 ```
-Note: If using spacemouse: you may need to modify the product ID to your appropriate model, setting `SPACEMOUSE_PRODUCT_ID` in `robocasa/macros_private.py`.
+Note: If using SpaceMouse, you may need to modify the product ID to your appropriate model, setting `SPACEMOUSE_PRODUCT_ID` in `robocasa/macros_private.py`.
 
 -------
 ## Tasks, datasets, policy learning, and additional use cases
